@@ -1,6 +1,6 @@
-# Template for a dockerized Node.js local development environment
+# Dockerized Node.js local development environment
 
-Isolate your Node.js processes like Vite and Next.js dev server.
+Isolate your Node.js processes. This could be used for running a local dev server like or Vite or Next.js.
 
 ## Reasoning
 
@@ -8,15 +8,12 @@ Why do this?
 
 Docker, especially in [rootless mode](https://docs.docker.com/engine/security/rootless/), allows for:
 
-1. Greater security
+1. **Greater security**
+   - All of the thousands of NPM dependencies now don't get any glimpse of the host.
 
-  - All of the thousands of NPM dependencies now don't get any glimpse of the host.
-
-2. Improved reproducibility
-
-  - Platform compatibility issues like environment variables on Windows.
-
-  - Developers working on the app get the exact same results every time, doesn't matter if they are running Windows, macOS or Linux.
+2. **Improved reproducibility**
+   - Platform compatibility issues like environment variables on Windows.
+   - Developers working on the app get the exact same results every time, doesn't matter if they are running Windows, macOS or Linux.
 
 
 ## Setup
@@ -32,7 +29,7 @@ docker -v
 docker compose version
 ```
 
-Optionally, make the [convenience script](./dev # "Acts as a docker compose shortcut so we don't have to type long commands every time") runnable:
+Optionally, make the [convenience shell script](./dev "Acts as a docker compose shortcut so we don't have to type long commands every time") runnable:
 
 ```sh
 chmod +x ./dev
