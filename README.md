@@ -1,6 +1,6 @@
 # Dockerized Node.js local development environment
 
-Isolate your Node.js processes. This could be used for running a local dev server like or Vite or Next.js.
+Isolate your Node.js processes. This could be used for running a local dev server like Vite, Next.js or Nest.js.
 
 ## Reasoning
 
