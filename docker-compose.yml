@@ -1,0 +1,16 @@
+services:
+  skilltest:
+    container_name: skilltest
+    build: .
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+      - node_modules:/usr/local/lib/node_modules
+    ports:
+      - "5173:5173"
+    command: >
+      bash -c "npm i && npm run dev:docker"
+
+volumes:
+  node_modules:

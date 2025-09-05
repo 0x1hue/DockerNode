@@ -1,0 +1,22 @@
+.env*
+!.env.template
+
+.vscode
+# Allow forcing VSCode settings. With great power comes great responsibility.
+# Normally users should store their own settings outside of the project anyway.
+!.vscode/(extensions|settings).json
+
+
+# Package managers
+/node_modules
+/.pnpm-store
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+

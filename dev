@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  echo -e "\n 💡 Pass \`bash\` as first arg to enter shell\n"
+  docker compose up
+elif [ "$1" = "stop" ]; then
+  docker compose down
+elif [ "$1" = "logs" ]; then
+  docker compose logs -f
+elif [ "$(docker ps -q -f name=docker-node-project)" ]; then
+  # If the container is running, use exec
+  docker compose exec docker-node-project "$@"
+else
+  # If the container is not running, use run
+  docker compose run --service-ports --rm --build --remove-orphans --name docker-node-project docker-node-project "$@"
+fi
