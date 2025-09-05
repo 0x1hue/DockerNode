@@ -1,6 +1,8 @@
 # Dockerized Node.js local development environment
 
-Isolate your Node.js processes. This could be used for running a local dev server like Vite, Next.js or Nest.js.
+Isolate your Node.js processes.
+
+This could be used for running a local dev server like Vite, Next.js or Nest.js.
 
 ## Reasoning
 
@@ -9,11 +11,12 @@ Why do this?
 Docker, especially in [rootless mode](https://docs.docker.com/engine/security/rootless/), allows for:
 
 1. **Greater security**
-   - All of the thousands of NPM dependencies now don't get any glimpse of the host.
+   - Thousands of those NPM dependencies are now prevented from getting any glimpse of the host.
 
 2. **Improved reproducibility**
-   - Platform compatibility issues like environment variables on Windows.
-   - Developers working on the app get the exact same results every time, doesn't matter if they are running Windows, macOS or Linux.
+   - Platform compatibility issues like environment variables on Windows vs UNIX.
+
+   - Developers working on the app get the exact same result every time, no matter if they are running Windows, macOS or Linux.
 
 
 ## Setup
