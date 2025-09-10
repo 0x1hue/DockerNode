@@ -38,12 +38,20 @@ Optionally, make the [convenience shell script](./dev "Acts as a docker compose 
 chmod +x ./dev
 ```
 
+### Environment variables
+
+Create an `.env` or remove `env_file` in [`docker-compose.yml:12`](docker-compose.yml#L12).
+
+### Port mapping
+
+Specify `host:container` ports in [`docker-compose.yml`](docker-compose.yml#L10C5-L11C20). If your node.js process inside the container runs on `5173` but you want to avoid clashing with something else on your host machine, you could map it to `5174:5173`.
+
 ## Usage
 
 | Command | Description |
 | ---: | --- |
 | `./dev`               | Start development. Runs [`docker-compose.yml:13`](docker-compose.yml#L13) and [`dev:docker`](package.json#L7). |
 | `./dev stop`          | Stop container explicitly. |
-| `./dev bash`          | Enter shell to execute command inside the container. |
+| `./dev bash`          | Enter shell to execute commands inside the container. |
 | `./dev logs`          | View rolling logs (if you've closed them). |
-| `./dev any-command`   | Pass any command instead of `bash`. |
+| `./dev any-command`   | Pass any command to be executed inside the container (instead of `bash`). |

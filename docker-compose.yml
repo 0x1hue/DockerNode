@@ -9,6 +9,8 @@ services:
       - node_modules:/usr/local/lib/node_modules
     ports:
       - "5173:5173"
+    env_file:
+      - .env
     command: >
       bash -c "npm i && npm run dev:docker"
 
