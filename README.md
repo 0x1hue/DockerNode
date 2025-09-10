@@ -42,13 +42,22 @@ chmod +x ./dev
 
 Create an `.env` or remove `env_file` in [`docker-compose.yml`](docker-compose.yml#L12C5-L13C13).
 
+Alternatively, env vars can be hardcoded (or otherwise piped in):
+
+```yml
+   environment:
+    - DEBUG=${DEBUG}
+```
+
+See https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/
+
 ### Port mapping
 
 Specify `host:container` ports in [`docker-compose.yml`](docker-compose.yml#L10C5-L11C20).
 
 If your node.js process inside the container runs on `5173` but you want to avoid clashing with something else on your host machine, you could map it like so: `5174:5173`.
 
-For further info, see https://docs.docker.com/compose/how-tos/networking/
+See https://docs.docker.com/compose/how-tos/networking/
 
 ## Usage
 
