@@ -59,7 +59,7 @@ See 💡 [Docs](https://docs.docker.com/compose/how-tos/environment-variables/se
 
 Specify `host:container` ports in [`docker-compose.yml`](docker-compose.yml#L10C5-L11C20).
 
-If your node.js process inside the container runs on `5173` but you want to avoid clashing with something else on your host machine, you could map it like so: `5174:5173`.
+If our node.js process inside the container runs on `5173` but we want to avoid clashing with something else on our host machine, we could map it like so: `5174:5173`.
 
 See 💡 [Docs](https://docs.docker.com/compose/how-tos/networking/)
 
