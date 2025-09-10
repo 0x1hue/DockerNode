@@ -67,7 +67,7 @@ If your node.js process inside the container runs on `5173` but you want to avoi
 
 | Command | Description |
 | ---: | --- |
-| `./dev`               | Start development. Runs [`docker-compose.yml:13`](docker-compose.yml#L13) and [`dev:docker`](package.json#L7). |
+| `./dev`               | Start development. Runs [`docker-compose.yml:15`](docker-compose.yml#L15) and [`dev:docker`](package.json#L7). |
 | `./dev stop`          | Stop container explicitly. |
 | `./dev bash`          | Enter shell to execute commands inside the container. |
 | `./dev logs`          | View rolling logs (if you've closed them). |
