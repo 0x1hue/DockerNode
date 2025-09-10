@@ -1,6 +1,6 @@
 services:
-  some-container-name:
-    container_name: some-container-name
+  docker-node:
+    container_name: docker-node
     build: .
     stdin_open: true
     tty: true
