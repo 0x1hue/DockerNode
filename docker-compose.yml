@@ -1,6 +1,6 @@
 services:
-  skilltest:
-    container_name: skilltest
+  some-container-name:
+    container_name: some-container-name
     build: .
     stdin_open: true
     tty: true
