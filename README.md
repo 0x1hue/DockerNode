@@ -37,3 +37,13 @@ Optionally, make the [convenience shell script](./dev "Acts as a docker compose 
 ```sh
 chmod +x ./dev
 ```
+
+## Usage
+
+| Command | Description |
+| ---: | --- |
+| `./dev`               | Start development. Runs [`docker-compose.yml:13`](docker-compose.yml#L13) and [`dev:docker`](package.json#L7). |
+| `./dev stop`          | Stop container explicitly. |
+| `./dev bash`          | Enter shell to execute command inside the container. |
+| `./dev logs`          | View rolling logs (if you've closed them). |
+| `./dev any-command`   | Pass any command instead of `bash`. |
