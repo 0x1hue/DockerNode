@@ -4,6 +4,7 @@ Isolate your Node.js processes.
 
 This could be used for running a local dev server like Vite, Next.js or Nest.js.
 
+
 ## Reasoning
 
 Why do this?
@@ -41,7 +42,7 @@ chmod +x ./dev
 This will allow us to avoid typing the verbose `docker compose yada yada yada` every time we want to spin up our dev environment.
 
 
-### Environment variables
+## Environment variables
 
 Create an `.env` or remove `env_file` in [`docker-compose.yml`](docker-compose.yml#L12C5-L13C13).
 
@@ -52,16 +53,15 @@ Alternatively, env vars can be hardcoded (or otherwise piped in):
     - DEBUG=${DEBUG}
 ```
 
-<sub>See 👉 [Docker Docs](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/)</sub>
+See 💡 [Docs](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/)
 
-
-### Port mapping
+## Port mapping
 
 Specify `host:container` ports in [`docker-compose.yml`](docker-compose.yml#L10C5-L11C20).
 
 If your node.js process inside the container runs on `5173` but you want to avoid clashing with something else on your host machine, you could map it like so: `5174:5173`.
 
-<sub>See 👉 [Docker Docs](https://docs.docker.com/compose/how-tos/networking/)</sub>
+See 💡 [Docs](https://docs.docker.com/compose/how-tos/networking/)
 
 ## Usage
 
