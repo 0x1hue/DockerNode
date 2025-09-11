@@ -82,7 +82,7 @@ docker system prune --all --volumes --force
 
 ## Isolating Node.js further
 
-The repository root is mounted as `/app` within the container using [`WORKDIR`](Dockerfile#L20).
+The repository root `.` (as in, current dir) is mounted as `/app` within the container using [`WORKDIR`](Dockerfile#L20).
 
 This means that all files in the repository root are available to any node.js process. For example,`.env.prod` or other secrets.
 
