@@ -110,7 +110,6 @@ Modify `Dockerfile` along these lines:
 WORKDIR /app
 
 ENV SHELL=bash
-ENV NODE_ENV=development
 ENV PNPM_HOME=/usr/local/share/.pnpm-store
 ENV PATH=$PNPM_HOME:$PATH
 
