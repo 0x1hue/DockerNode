@@ -8,8 +8,8 @@
 
 
 # Package managers
-/node_modules
-/.pnpm-store
+node_modules
+.pnpm-store
 .pnp.*
 .yarn/*
 !.yarn/patches
