@@ -101,7 +101,7 @@ To completely isolate a node.js app, we can mount a subdirectory instead of root
     volumes:
       - ./app:/app 
 ```
-We then place `package.json` under `app/` along with the rest of our application-speicif sourceode.
+We then place `package.json` under `app/` along with the rest of our application-specific sourceode.
 
 ## Using with PNPM 
 
