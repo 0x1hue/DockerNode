@@ -109,16 +109,13 @@ Modify `Dockerfile` along these lines:
 # ...
 WORKDIR /app
 
-ENV SHELL=bash
 ENV PNPM_HOME=/usr/local/share/.pnpm-store
 ENV PATH=$PNPM_HOME:$PATH
 
 RUN mkdir -p $PNPM_HOME
 
 RUN npm install -g npm@latest corepack@latest
-
 RUN corepack enable pnpm
-
 RUN corepack use pnpm@latest
 ```
 
