@@ -79,3 +79,19 @@ See 💡 [Docs](https://docs.docker.com/compose/how-tos/networking/)
 docker builder prune --all --force
 docker system prune --all --volumes --force
 ```
+
+## Isolating Node.js further
+
+The repository root is mounted as `/app` within the container using [`WORKDIR`](Dockerfile#L20).
+
+This means that all files in the repository root are available to any node.js process. For example,`.env.prod` or other secrets.
+
+>[!TIP]
+> `WORKDIR` mounts everything as a filesystem volume, granting us real-time two-way synchronization. Useful for actual development work.
+> `COPY` copies files over *once* at container build-time and respects `.dockerignore`.
+
+To completely isolate a node.js app, we can mount a subdirectory (containing just a `package.json` for example) instead of root `.`:
+```sh
+    volumes:
+      - ./app:/app 
+```

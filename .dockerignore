@@ -1,3 +1,4 @@
+<!-- Note that .dockerignore works with the COPY command, not WORKDIR, see Dockerfile:20 -->
 node_modules
 .pnpm-store
 
@@ -8,6 +9,6 @@ node_modules
 
 README.md
 
-dev
+/dev
 
 .env*

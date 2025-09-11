@@ -4,11 +4,11 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./app:/app
+      - .:/app # host:container
       - node_modules:/usr/local/lib/node_modules
       - usr_local_share:/usr/local/share/
     ports:
-      - "5173:5173"
+      - "5173:5173" # host:container
     env_file:
       - .env
     command: >
