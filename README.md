@@ -96,11 +96,12 @@ This means that all files in the repository root are available to any node.js pr
 > [`WORKDIR`](https://docs.docker.com/reference/dockerfile/#workdir) mounts everything as a filesystem volume, granting us real-time two-way synchronization. Useful for actual development work.<br/>
 > [`COPY`](https://docs.docker.com/reference/dockerfile/#copy), in contrast, copies files over *once* at container build-time and respects `.dockerignore`.
 
-To completely isolate a node.js app, we can mount a subdirectory (containing just a `package.json` for example) instead of root `.`:
+To completely isolate a node.js app, we can mount a subdirectory instead of root `.`:
 ```sh
     volumes:
       - ./app:/app 
 ```
+We would then have `app/package.json` along with the rest of our application sourcecode under `app/**`.
 
 ## Using with PNPM 
 
