@@ -6,7 +6,6 @@ RUN for file in /etc/apt/sources.list.d/*; do \
     done
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 
 RUN apt-get update && \
     apt-get upgrade -y && \

@@ -113,6 +113,7 @@ Modify `Dockerfile` along these lines:
 # ...
 WORKDIR /app
 
+ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 ENV PNPM_HOME=/usr/local/share/.pnpm-store
 ENV PATH=$PNPM_HOME:$PATH
 
