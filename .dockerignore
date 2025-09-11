@@ -1,4 +1,5 @@
-<!-- Note that .dockerignore works with the COPY command, not WORKDIR, see Dockerfile:20 -->
+# Note that .dockerignore works with the COPY command, not WORKDIR, see Dockerfile:20
+
 node_modules
 .pnpm-store
 
