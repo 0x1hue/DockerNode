@@ -125,7 +125,7 @@ RUN corepack use pnpm@latest
 RUN pnpm add -g npm-check-updates
 ```
 
-Then, ensure that docker-compose knows what to run by default:
+Then, ensure that [`docker-compose.yml`](docker-compose.yml#L15) knows what to run by default:
 
 ```yml
     command: >
