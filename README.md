@@ -98,3 +98,36 @@ To completely isolate a node.js app, we can mount a subdirectory (containing jus
     volumes:
       - ./app:/app 
 ```
+
+## Using with PNPM 
+
+Want to use PNPM or any other package manager like Yarn or Bun?
+
+Modify `Dockerfile` along these lines:
+
+```dockerfile
+# ...
+WORKDIR /app
+
+ENV SHELL=bash
+ENV NODE_ENV=development
+ENV PNPM_HOME=/usr/local/share/.pnpm-store
+ENV PATH=$PNPM_HOME:$PATH
+
+RUN mkdir -p $PNPM_HOME
+
+RUN npm install -g npm@latest corepack@latest
+
+RUN corepack enable pnpm
+
+RUN corepack use pnpm@latest
+
+RUN pnpm add -g npm-check-updates
+```
+
+Then, ensure that docker-compose knows what to run by default:
+
+```yml
+    command: >
+      bash -c "pnpm i && pnpm dev:docker"
+```
