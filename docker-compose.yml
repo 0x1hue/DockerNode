@@ -1,18 +1,19 @@
 services:
   docker-node:
-    container_name: docker-node
     build: .
     stdin_open: true
     tty: true
     volumes:
-      - .:/app
+      - ./app:/app
       - node_modules:/usr/local/lib/node_modules
+      - usr_local_share:/usr/local/share/
     ports:
       - "5173:5173"
     env_file:
       - .env
     command: >
-      bash -c "npm i && npm run dev:docker"
+      bash -c "npm i && npm dev"
 
 volumes:
   node_modules:
+  usr_local_share:

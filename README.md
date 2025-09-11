@@ -72,3 +72,10 @@ See 💡 [Docs](https://docs.docker.com/compose/how-tos/networking/)
 | `./dev bash`          | Enter shell to execute commands inside the container. |
 | `./dev logs`          | View rolling logs (if you've closed them). |
 | `./dev any-command`   | Pass any command to be executed inside the container (instead of `bash`). |
+
+## Useful docker commands
+
+```sh
+docker builder prune --all --force
+docker system prune --all --volumes --force
+```

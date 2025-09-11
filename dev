@@ -7,10 +7,10 @@ elif [ "$1" = "stop" ]; then
   docker compose down
 elif [ "$1" = "logs" ]; then
   docker compose logs -f
-elif [ "$(docker ps -q -f name=docker-node-project)" ]; then
+elif [ "$(docker ps -q -f name=devblog)" ]; then
   # If the container is running, use exec
-  docker compose exec docker-node-project "$@"
+  docker compose exec devblog "$@"
 else
   # If the container is not running, use run
-  docker compose run --service-ports --rm --build --remove-orphans --name docker-node-project docker-node-project "$@"
+  docker compose run --service-ports --rm --build --remove-orphans devblog "$@"
 fi
