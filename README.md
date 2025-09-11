@@ -33,7 +33,7 @@ docker -v
 docker compose version
 ```
 
-Optionally, make the [convenience shell script](./dev "Acts as a docker compose shortcut so we don't have to type long commands every time") runnable:
+Optionally, make the `./dev` [convenience](./dev "Acts as a docker compose shortcut so we don't have to type long commands every time") shell script runnable:
 
 ```sh
 chmod +x ./dev
@@ -65,7 +65,7 @@ See 💡 [Docs](https://docs.docker.com/compose/how-tos/networking/)
 
 ## Usage
 
-For regular day-to-day use, use these shortcut commands. Ensure the `./dev` script is chmoded.
+For regular day-to-day use, use these shortcut commands:
 
 | Command | Description |
 | ---: | --- |
@@ -74,6 +74,9 @@ For regular day-to-day use, use these shortcut commands. Ensure the `./dev` scri
 | `./dev bash`          | Enter shell to execute commands inside the container. |
 | `./dev logs`          | View rolling logs (if you've closed them). |
 | `./dev any-command`   | Pass any command to be executed inside the container (instead of `bash`). |
+
+>[!IMPORTANT]
+> Ensure the `./dev` script is chmoded.
 
 ## Useful docker commands
 
