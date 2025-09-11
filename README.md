@@ -65,8 +65,6 @@ See 💡 [Docs](https://docs.docker.com/compose/how-tos/networking/)
 
 ## Usage
 
-For regular day-to-day use, use these shortcut commands:
-
 | Command | Description |
 | ---: | --- |
 | `./dev`               | Start development. Runs [`docker-compose.yml:15`](docker-compose.yml#L15) and [`dev:docker`](package.json#L7). |
