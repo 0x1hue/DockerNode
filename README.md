@@ -4,6 +4,7 @@ Isolate your Node.js processes.
 
 This could be used for running a local dev server like Vite, Next.js or Nest.js.
 
+<br/>
 
 ## Reasoning
 
@@ -12,13 +13,16 @@ Why do this?
 Docker, especially in [rootless mode](https://docs.docker.com/engine/security/rootless/), allows for:
 
 1. **Greater security**
+
    - Thousands of those NPM dependencies are now prevented from getting any glimpse of the host.
 
 2. **Improved reproducibility**
+
    - Platform compatibility issues like environment variables on Windows vs UNIX.
 
    - Developers working on the app get the exact same result every time, no matter if they are running Windows, macOS or Linux.
 
+<br/>
 
 ## Setup
 
@@ -41,6 +45,7 @@ chmod +x ./dev
 
 This will allow us to avoid typing the verbose `docker compose yada yada yada` every time we want to spin up our dev environment.
 
+<br/>
 
 ## Environment variables
 
@@ -49,11 +54,13 @@ Create an `.env` or remove `env_file` in [`docker-compose.yml`](docker-compose.y
 Alternatively, env vars can be hardcoded (or otherwise piped in):
 
 ```yml
-   environment:
-    - DEBUG=${DEBUG}
+environment:
+  - DEBUG=${DEBUG}
 ```
 
 See 💡 [Docs](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/)
+
+<br/>
 
 ## Port mapping
 
@@ -63,18 +70,22 @@ If our node.js process inside the container runs on `5173` but we want to avoid 
 
 See 💡 [Docs](https://docs.docker.com/compose/how-tos/networking/)
 
+<br/>
+
 ## Usage
 
-| Command | Description |
-| ---: | --- |
-| `./dev`               | Start development. Runs [`docker-compose.yml:15`](docker-compose.yml#L15) and [`dev:docker`](package.json#L7). |
-| `./dev stop`          | Stop container explicitly. |
-| `./dev bash`          | Enter shell to execute commands inside the container. |
-| `./dev logs`          | View rolling logs (if you've closed them). |
-| `./dev any-command`   | Pass any command to be executed inside the container (instead of `bash`). |
+|             Command | Description                                                                                                    |
+| ------------------: | -------------------------------------------------------------------------------------------------------------- |
+|             `./dev` | Start development. Runs [`docker-compose.yml:15`](docker-compose.yml#L15) and [`dev:docker`](package.json#L7). |
+|        `./dev stop` | Stop container explicitly.                                                                                     |
+|        `./dev bash` | Enter shell to execute commands inside the container.                                                          |
+|        `./dev logs` | View rolling logs (if you've closed them).                                                                     |
+| `./dev any-command` | Pass any command to be executed inside the container (instead of `bash`).                                      |
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Ensure the `./dev` script is chmoded.
+
+<br/>
 
 ## Useful docker commands
 
@@ -86,24 +97,28 @@ docker builder prune --all --force
 docker system prune --all --volumes --force
 ```
 
+<br/>
+
 ## Isolating Node.js further
 
 The repository root `.` (as in, current dir) is [mounted](docker-compose.yml#L7) as `/app` within the container using [`WORKDIR`](Dockerfile#L20).
 
 This means that all files in the repository root are available to any node.js process. For example,`.env.prod` or other secrets.
 
->[!TIP]
-> [`WORKDIR`](https://docs.docker.com/reference/dockerfile/#workdir) mounts everything as a filesystem volume, granting us real-time two-way synchronization. Useful for actual development work.<br/>
-> [`COPY`](https://docs.docker.com/reference/dockerfile/#copy), in contrast, copies files over *once* at container build-time and respects `.dockerignore`.
+> [!TIP] > [`WORKDIR`](https://docs.docker.com/reference/dockerfile/#workdir) mounts everything as a filesystem volume, granting us real-time two-way synchronization. Useful for actual development work.<br/> > [`COPY`](https://docs.docker.com/reference/dockerfile/#copy), in contrast, copies files over _once_ at container build-time and respects `.dockerignore`.
 
 To completely isolate a node.js app, we can mount a subdirectory instead of root `.`:
+
 ```sh
     volumes:
-      - ./app:/app 
+      - ./app:/app
 ```
+
 We then place `package.json` under `app/` along with the rest of our application-specific sourceode.
 
-## Using with PNPM 
+<br/>
+
+## Using with PNPM
 
 Want to use PNPM or any other package manager like Yarn or Bun?
 
@@ -127,6 +142,6 @@ RUN corepack use pnpm@latest
 Then, ensure that [`docker-compose.yml`](docker-compose.yml#L15) knows what to run by default:
 
 ```yml
-    command: >
-      bash -c "pnpm i && pnpm dev:docker"
+command: >
+  bash -c "pnpm i && pnpm dev:docker"
 ```
