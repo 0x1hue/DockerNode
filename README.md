@@ -58,7 +58,11 @@ environment:
   - DEBUG=${DEBUG}
 ```
 
-See 💡 [Docs](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/)
+> [!TIP]
+> Environment variables specified this way will be available _in the environment_ of the container (i.e. OS level). This is identical to how env vars would be available during a CI build.<br />
+> For development, prefer `.env` loaded via node tooling with auto-refresh (e.g. Vite dev server).
+
+See 💡 [Docker Docs](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/)
 
 <br/>
 
@@ -68,7 +72,7 @@ Specify `host:container` ports in [`docker-compose.yml`](docker-compose.yml#L10C
 
 If our node.js process inside the container runs on `5173` but we want to avoid clashing with something else on our host machine, we could map it like so: `5174:5173`.
 
-See 💡 [Docs](https://docs.docker.com/compose/how-tos/networking/)
+See 💡 [Docker Docs](https://docs.docker.com/compose/how-tos/networking/)
 
 <br/>
 
@@ -120,7 +124,7 @@ We then place `package.json` under `app/` along with the rest of our application
 
 ## Using with PNPM
 
-Want to use PNPM or any other package manager like Yarn or Bun?
+Want to use PNPM or another package manager like Yarn or Bun?
 
 Modify `Dockerfile` along these lines:
 
