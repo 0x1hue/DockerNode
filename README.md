@@ -59,7 +59,8 @@ environment:
 ```
 
 > [!NOTE]
-> Variables via docker-compose will be available _in the environment_ of the container (i.e. OS level). This is identical to how env vars would be available during a CI build.<br />
+> Variables via docker-compose will be available _in the environment_ of the container (i.e. OS level).<br/>
+> This is identical to how env vars would be available during a CI build.<br />
 > For development, prefer `.env` loaded via framework tooling with auto-refresh (e.g. Vite dev server).
 
 See 💡 [Docker Docs](https://docs.docker.com/compose/how-tos/environment-variables/set-environment-variables/)
