@@ -58,7 +58,7 @@ environment:
   - DEBUG=${DEBUG}
 ```
 
-> [!TIP]
+> [!NOTICE]
 > Environment variables specified this way will be available _in the environment_ of the container (i.e. OS level). This is identical to how env vars would be available during a CI build.<br />
 > For development, prefer `.env` loaded via node tooling with auto-refresh (e.g. Vite dev server).
 
