@@ -111,7 +111,7 @@ The repository root `.` (as in, current dir) is [mounted](docker-compose.yml#L7)
 This means that all files in the repository root are available to any node.js process. For example,`.env.prod` or other secrets.
 
 > [!TIP]\
-> [`WORKDIR`](https://docs.docker.com/reference/dockerfile/#workdir) mounts everything as a filesystem volume, granting us real-time two-way synchronization. Useful for actual development work.<br/>\
+> [`WORKDIR`](https://docs.docker.com/reference/dockerfile/#workdir) mounts everything as a filesystem volume, granting us real-time two-way synchronization. Useful for actual development work.\
 > [`COPY`](https://docs.docker.com/reference/dockerfile/#copy), in contrast, copies files over _once_ at container build-time and respects `.dockerignore`.
 
 To completely isolate a node.js app, we can mount a subdirectory instead of root `.`:
