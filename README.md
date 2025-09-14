@@ -114,9 +114,9 @@ This means that all files in the repository root are available to any node.js pr
 
 To completely isolate a node.js app, we can mount a subdirectory instead of root `.`:
 
-```sh
-    volumes:
-      - ./app:/app
+```yml
+volumes:
+  - ./app:/app
 ```
 
 We then place `package.json` under `app/` along with the rest of our application-specific sourceode.
