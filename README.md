@@ -116,7 +116,7 @@ To completely isolate a node.js app, we can mount a subdirectory instead of root
 
 ```yml
 volumes:
-  - ./app:/app
+  - ./app:/app # host:container
 ```
 
 We then place `package.json` under `app/` along with the rest of our application-specific sourceode.
