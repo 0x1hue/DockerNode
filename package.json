@@ -1,7 +1,9 @@
 {
   "name": "docker-node",
-  "private": true,
-  "version": "0.0.1",
+  "author": "1hue (https://github.com/1hue)",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev:docker": "vite --host"

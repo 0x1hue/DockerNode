@@ -9,8 +9,8 @@ services:
       - usr_local_share:/usr/local/share/
     ports:
       - "5173:5173" # host:container
-    env_file:
-      - .env
+    # env_file:
+    #   - .env
     command: >
       bash -c "npm i && npm run dev:docker"
 
